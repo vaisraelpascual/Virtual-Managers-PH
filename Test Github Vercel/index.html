@@ -1,0 +1,3606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TikTok Shop & Affiliate Creator Management | Portfolio</title>
+
+<!-- =========================================================
+     FONTS
+     ========================================================= -->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Libre+Baskerville:wght@400;700&family=Montserrat:wght@400;500;600;700;800&display=swap');
+</style>
+
+<!-- =========================================================
+     FONT AWESOME
+     ========================================================= -->
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+>
+
+<style>
+
+/* =========================================================
+   ROOT / GLOBAL
+   ========================================================= */
+
+:root{
+    --bg:#070b10;
+    --bg-soft:#0b1118;
+    --panel:#0d141d;
+    --panel-2:#111a24;
+
+    --cream:#eee7da;
+    --cream-soft:#d7cec0;
+    --muted:#8f9aa6;
+
+    --gold:#d5b889;
+    --gold-light:#ead4ae;
+
+    --line:rgba(238,231,218,.11);
+    --line-gold:rgba(213,184,137,.34);
+
+    --green:#83d4a3;
+
+    --max:1240px;
+
+    --serif:"Libre Baskerville",Georgia,serif;
+    --sans:"Montserrat",Arial,sans-serif;
+    --mono:"DM Mono",monospace;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+}
+
+html::-webkit-scrollbar{
+    display:none;
+    width:0;
+    height:0;
+}
+
+body{
+    margin:0;
+    background:
+        radial-gradient(
+            circle at 75% 5%,
+            rgba(213,184,137,.075),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 10% 45%,
+            rgba(65,100,130,.08),
+            transparent 28%
+        ),
+        var(--bg);
+
+    color:var(--cream);
+
+    font-family:var(--sans);
+    line-height:1.7;
+
+    -webkit-font-smoothing:antialiased;
+
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+}
+
+body::-webkit-scrollbar{
+    display:none;
+}
+
+::selection{
+    background:var(--gold);
+    color:var(--bg);
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button,
+a{
+    -webkit-tap-highlight-color:transparent;
+}
+
+
+/* =========================================================
+   PAGE WRAPPER
+   ========================================================= */
+
+.site-wrap{
+    width:min(calc(100% - 34px),var(--max));
+    margin:17px auto 55px;
+
+    position:relative;
+
+    border:1px solid var(--line);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.012),
+            transparent 35%
+        ),
+        var(--bg);
+
+    overflow:hidden;
+
+    box-shadow:
+        0 35px 100px rgba(0,0,0,.28);
+}
+
+
+/* =========================================================
+   DECORATIVE GRID
+   ========================================================= */
+
+.site-wrap::before{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:.24;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
+
+    background-size:50px 50px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 75%
+        );
+
+    z-index:0;
+}
+
+.site-wrap > *{
+    position:relative;
+    z-index:1;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.navbar{
+    min-height:76px;
+
+    padding:0 34px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    border-bottom:1px solid var(--line);
+
+    background:rgba(7,11,16,.82);
+
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+
+    position:sticky;
+    top:0;
+
+    z-index:100;
+}
+
+.nav-brand{
+    display:flex;
+    align-items:center;
+    gap:11px;
+
+    color:var(--cream);
+
+    font-family:var(--mono);
+    font-size:11px;
+    font-weight:500;
+
+    letter-spacing:.12em;
+    text-transform:uppercase;
+
+    white-space:nowrap;
+}
+
+.nav-brand-mark{
+    width:31px;
+    height:31px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:1px solid var(--line-gold);
+
+    color:var(--gold);
+
+    font-family:var(--serif);
+    font-size:11px;
+
+    background:rgba(213,184,137,.045);
+}
+
+.nav-links{
+    height:100%;
+
+    display:flex;
+    align-items:center;
+
+    gap:5px;
+}
+
+.nav-item{
+    position:relative;
+    height:76px;
+
+    display:flex;
+    align-items:center;
+}
+
+.nav-link{
+    height:100%;
+
+    padding:0 15px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:var(--muted);
+
+    font-family:var(--mono);
+    font-size:10px;
+
+    letter-spacing:.07em;
+    text-transform:uppercase;
+
+    transition:
+        color .25s ease,
+        background .25s ease;
+}
+
+.nav-link:hover{
+    color:var(--cream);
+
+    background:rgba(255,255,255,.025);
+}
+
+.dropdown-toggle{
+    gap:8px;
+}
+
+.dropdown-arrow{
+    font-size:8px;
+
+    transition:
+        transform .25s ease;
+}
+
+.nav-item.dropdown:hover .dropdown-arrow{
+    transform:rotate(180deg);
+}
+
+.dropdown-menu{
+    position:absolute;
+
+    top:76px;
+    right:0;
+
+    min-width:280px;
+
+    padding:8px;
+
+    border:1px solid var(--line-gold);
+
+    background:#0c1219;
+
+    box-shadow:
+        0 25px 50px rgba(0,0,0,.35);
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:translateY(10px);
+
+    transition:
+        opacity .22s ease,
+        transform .22s ease,
+        visibility .22s ease;
+
+    z-index:1000;
+}
+
+.nav-item.dropdown:hover .dropdown-menu{
+    opacity:1;
+    visibility:visible;
+
+    transform:translateY(0);
+}
+
+.dropdown-link{
+    display:block;
+
+    padding:14px 15px;
+
+    border:1px solid transparent;
+
+    color:var(--muted);
+
+    font-family:var(--mono);
+    font-size:9px;
+
+    letter-spacing:.05em;
+    text-transform:uppercase;
+
+    transition:
+        color .2s ease,
+        background .2s ease,
+        border-color .2s ease;
+}
+
+.dropdown-link:hover{
+    color:var(--gold-light);
+
+    background:rgba(255,255,255,.025);
+
+    border-color:var(--line);
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero{
+    min-height:650px;
+
+    padding:86px 70px 76px;
+
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,1.12fr)
+        minmax(380px,.88fr);
+
+    gap:70px;
+
+    border-bottom:1px solid var(--line);
+
+    position:relative;
+}
+
+
+/* =========================================================
+   HERO LEFT
+   ========================================================= */
+
+.hero-content{
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+}
+
+.kicker{
+    margin:0 0 22px;
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    color:var(--gold);
+
+    font-family:var(--mono);
+    font-size:10px;
+    font-weight:500;
+
+    letter-spacing:.16em;
+    text-transform:uppercase;
+}
+
+.kicker::before{
+    content:"";
+
+    width:30px;
+    height:1px;
+
+    background:var(--gold);
+}
+
+h1{
+    margin:0;
+
+    max-width:780px;
+
+    color:var(--cream);
+
+    font-family:var(--serif);
+
+    font-size:clamp(42px,6vw,76px);
+
+    font-weight:400;
+
+    line-height:1.08;
+
+    letter-spacing:-.025em;
+}
+
+h1 em{
+    color:var(--gold);
+
+    font-style:normal;
+}
+
+.hero-subtitle{
+    max-width:680px;
+
+    margin:25px 0 24px;
+
+    color:var(--cream-soft);
+
+    font-family:var(--serif);
+
+    font-size:clamp(18px,2vw,24px);
+
+    line-height:1.45;
+}
+
+.hero-intro{
+    max-width:690px;
+
+    color:var(--muted);
+
+    font-size:14px;
+
+    line-height:1.85;
+}
+
+.hero-intro p{
+    margin:0 0 11px;
+}
+
+
+/* =========================================================
+   HERO META
+   ========================================================= */
+
+.hero-meta{
+    margin-top:34px;
+
+    display:flex;
+    align-items:center;
+    gap:28px;
+
+    flex-wrap:wrap;
+}
+
+.availability{
+    display:flex;
+    align-items:center;
+    gap:9px;
+
+    color:var(--cream);
+
+    font-family:var(--mono);
+    font-size:9px;
+
+    letter-spacing:.08em;
+    text-transform:uppercase;
+}
+
+.status-dot{
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--green);
+
+    box-shadow:
+        0 0 0 4px rgba(131,212,163,.08),
+        0 0 18px rgba(131,212,163,.35);
+}
+
+.hero-note{
+    color:var(--muted);
+
+    font-family:var(--mono);
+    font-size:9px;
+
+    letter-spacing:.06em;
+}
+
+
+/* =========================================================
+   HERO VISUAL
+   ========================================================= */
+
+.hero-visual{
+    min-height:480px;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+
+/* ORBIT */
+
+.orbit{
+    width:390px;
+    height:390px;
+
+    position:absolute;
+
+    border:1px solid rgba(213,184,137,.13);
+
+    border-radius:50%;
+}
+
+.orbit::before{
+    content:"";
+
+    position:absolute;
+
+    inset:45px;
+
+    border:1px dashed rgba(213,184,137,.12);
+
+    border-radius:50%;
+}
+
+.orbit::after{
+    content:"";
+
+    position:absolute;
+
+    width:7px;
+    height:7px;
+
+    top:35px;
+    right:72px;
+
+    border-radius:50%;
+
+    background:var(--gold);
+
+    box-shadow:
+        0 0 20px rgba(213,184,137,.7);
+}
+
+
+/* CENTRAL CARD */
+
+.dashboard-card{
+    width:340px;
+
+    padding:25px;
+
+    position:relative;
+
+    border:1px solid var(--line-gold);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.012)
+        ),
+        #0b1118;
+
+    box-shadow:
+        0 35px 70px rgba(0,0,0,.45);
+
+    transform:rotate(-2deg);
+
+    z-index:2;
+}
+
+.dashboard-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding-bottom:20px;
+
+    border-bottom:1px solid var(--line);
+}
+
+.dashboard-label{
+    color:var(--muted);
+
+    font-family:var(--mono);
+    font-size:8px;
+
+    letter-spacing:.12em;
+    text-transform:uppercase;
+}
+
+.dashboard-period{
+    color:var(--gold);
+
+    font-family:var(--mono);
+    font-size:8px;
+}
+
+.dashboard-number{
+    margin:25px 0 5px;
+
+    color:var(--cream);
+
+    font-family:var(--serif);
+
+    font-size:45px;
+
+    line-height:1;
+}
+
+.dashboard-growth{
+    color:var(--green);
+
+    font-family:var(--mono);
+    font-size:9px;
+
+    letter-spacing:.04em;
+}
+
+.chart{
+    height:120px;
+
+    margin-top:25px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-bottom:1px solid var(--line);
+}
+
+.chart-grid{
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,.045) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.035) 1px,
+            transparent 1px
+        );
+
+    background-size:100% 30px,40px 100%;
+}
+
+.chart-line{
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:12px;
+
+    height:80px;
+}
+
+.chart-line svg{
+    width:100%;
+    height:100%;
+
+    overflow:visible;
+}
+
+.dashboard-bottom{
+    padding-top:20px;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:10px;
+}
+
+.mini-stat{
+    padding:11px;
+
+    border:1px solid var(--line);
+
+    background:rgba(255,255,255,.018);
+}
+
+.mini-stat-value{
+    color:var(--cream);
+
+    font-family:var(--serif);
+
+    font-size:18px;
+}
+
+.mini-stat-label{
+    margin-top:3px;
+
+    color:var(--muted);
+
+    font-family:var(--mono);
+
+    font-size:7px;
+
+    letter-spacing:.05em;
+
+    text-transform:uppercase;
+}
+
+
+/* FLOATING LABELS */
+
+.float-card{
+    position:absolute;
+
+    padding:12px 15px;
+
+    border:1px solid var(--line);
+
+    background:rgba(10,16,23,.92);
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.25);
+
+    z-index:4;
+}
+
+.float-card small{
+    display:block;
+
+    margin-bottom:3px;
+
+    color:var(--muted);
+
+    font-family:var(--mono);
+
+    font-size:7px;
+
+    letter-spacing:.1em;
+
+    text-transform:uppercase;
+}
+
+.float-card strong{
+    color:var(--cream);
+
+    font-family:var(--serif);
+
+    font-size:15px;
+
+    font-weight:400;
+}
+
+.float-one{
+    top:70px;
+    right:0;
+}
+
+.float-two{
+    bottom:70px;
+    left:0;
+}
+
+.float-three{
+    bottom:15px;
+    right:30px;
+
+    color:var(--gold);
+
+    font-family:var(--mono);
+
+    font-size:8px;
+
+    letter-spacing:.08em;
+}
+
+
+/* =========================================================
+   CONTACT SECTION
+   ========================================================= */
+
+.contact-section{
+    margin-top:40px;
+}
+
+.contact-box{
+    padding:18px;
+
+    border:1px solid var(--line);
+
+    background:rgba(255,255,255,.018);
+}
+
+.contact-label{
+    margin:0 0 14px;
+
+    color:var(--muted);
+
+    font-family:var(--mono);
+
+    font-size:8px;
+
+    letter-spacing:.13em;
+
+    text-transform:uppercase;
+}
+
+.contact-buttons{
+    display:grid;
+
+    grid-template-columns:
+        repeat(5,minmax(0,1fr));
+
+    gap:8px;
+}
+
+.contact-button{
+    min-height:46px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:8px;
+
+    border:1px solid var(--line);
+
+    color:var(--muted);
+
+    background:var(--bg);
+
+    font-family:var(--mono);
+
+    font-size:9px;
+
+    letter-spacing:.05em;
+
+    text-transform:uppercase;
+
+    transition:
+        color .25s ease,
+        border-color .25s ease,
+        background .25s ease,
+        transform .25s ease;
+}
+
+.contact-button:hover{
+    color:var(--gold-light);
+
+    border-color:var(--line-gold);
+
+    background:rgba(213,184,137,.045);
+
+    transform:translateY(-2px);
+}
+
+.contact-button i{
+    font-size:11px;
+}
+
+
+/* =========================================================
+   SECTION GLOBAL
+   ========================================================= */
+
+.section{
+    padding:90px 70px;
+
+    border-bottom:1px solid var(--line);
+}
+
+.section-heading{
+    max-width:760px;
+
+    margin-bottom:50px;
+}
+
+.section-kicker{
+    margin:0 0 15px;
+
+    color:var(--gold);
+
+    font-family:var(--mono);
+
+    font-size:9px;
+
+    letter-spacing:.15em;
+
+    text-transform:uppercase;
+}
+
+.section-title{
+    margin:0;
+
+    color:var(--cream);
+
+    font-family:var(--serif);
+
+    font-size:clamp(30px,4vw,49px);
+
+    font-weight:400;
+
+    line-height:1.2;
+
+    letter-spacing:-.02em;
+}
+
+.section-description{
+    margin:17px 0 0;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   CAPABILITIES
+   ========================================================= */
+
+.capabilities-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+    gap:12px;
+}
+
+.capability{
+    min-height:225px;
+
+    padding:28px;
+
+    position:relative;
+
+    border:1px solid var(--line);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.025),
+            rgba(255,255,255,.008)
+        );
+
+    overflow:hidden;
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        background .3s ease;
+}
+
+.capability::after{
+    content:"";
+
+    width:100px;
+    height:100px;
+
+    position:absolute;
+
+    right:-45px;
+    bottom:-45px;
+
+    border:1px solid rgba(213,184,137,.12);
+
+    border-radius:50%;
+}
+
+.capability:hover{
+    transform:translateY(-5px);
+
+    border-color:var(--line-gold);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(213,184,137,.045),
+            rgba(255,255,255,.008)
+        );
+}
+
+.capability-number{
+    color:var(--gold);
+
+    font-family:var(--mono);
+
+    font-size:9px;
+
+    letter-spacing:.1em;
+}
+
+.capability-icon{
+    margin:30px 0 18px;
+
+    width:40px;
+    height:40px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:1px solid var(--line-gold);
+
+    color:var(--gold);
+
+    background:rgba(213,184,137,.035);
+
+    font-size:15px;
+}
+
+.capability-title{
+    margin:0 0 9px;
+
+    color:var(--cream);
+
+    font-family:var(--serif);
+
+    font-size:20px;
+
+    font-weight:400;
+}
+
+.capability-text{
+    margin:0;
+
+    color:var(--muted);
+
+    font-size:11px;
+
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   CASE STUDIES
+   ========================================================= */
+
+.case-section{
+    padding:90px 70px;
+
+    border-bottom:1px solid var(--line);
+}
+
+.case-list{
+    display:flex;
+    flex-direction:column;
+
+    gap:16px;
+}
+
+.case-study{
+    min-height:330px;
+
+    display:grid;
+
+    grid-template-columns:
+        80px
+        minmax(0,1fr)
+        390px;
+
+    border:1px solid var(--line);
+
+    background:
+        linear-gradient(
+            100deg,
+            rgba(255,255,255,.02),
+            rgba(255,255,255,.006)
+        );
+
+    overflow:hidden;
+
+    transition:
+        border-color .3s ease,
+        transform .3s ease;
+}
+
+.case-study:hover{
+    border-color:var(--line-gold);
+
+    transform:translateY(-4px);
+}
+
+.case-index{
+    padding-top:30px;
+
+    display:flex;
+    justify-content:center;
+
+    color:var(--gold);
+
+    font-family:var(--mono);
+
+    font-size:10px;
+
+    letter-spacing:.08em;
+
+    border-right:1px solid var(--line);
+}
+
+.case-content{
+    padding:38px 40px;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+}
+
+.case-tag{
+    margin-bottom:13px;
+
+    color:var(--gold);
+
+    font-family:var(--mono);
+
+    font-size:8px;
+
+    letter-spacing:.13em;
+
+    text-transform:uppercase;
+}
+
+.case-title{
+    margin:0;
+
+    color:var(--cream);
+
+    font-family:var(--serif);
+
+    font-size:clamp(25px,3vw,38px);
+
+    font-weight:400;
+
+    line-height:1.2;
+}
+
+.case-description{
+    max-width:570px;
+
+    margin:17px 0 25px;
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    line-height:1.8;
+}
+
+.case-link{
+    width:max-content;
+
+    display:inline-flex;
+    align-items:center;
+
+    gap:11px;
+
+    padding-bottom:5px;
+
+    border-bottom:1px solid var(--line-gold);
+
+    color:var(--cream);
+
+    font-family:var(--mono);
+
+    font-size:8px;
+
+    letter-spacing:.09em;
+
+    text-transform:uppercase;
+
+    transition:
+        color .2s ease,
+        gap .2s ease;
+}
+
+.case-link:hover{
+    color:var(--gold-light);
+
+    gap:16px;
+}
+
+
+/* =========================================================
+   CASE VISUALS
+   ========================================================= */
+
+.case-visual{
+    min-height:330px;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-left:1px solid var(--line);
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(213,184,137,.08),
+            transparent 60%
+        );
+
+    overflow:hidden;
+}
+
+
+/* SHOP VISUAL */
+
+.shop-window{
+    width:260px;
+
+    border:1px solid var(--line-gold);
+
+    background:#0b1118;
+
+    box-shadow:
+        0 25px 50px rgba(0,0,0,.35);
+
+    transform:rotate(3deg);
+}
+
+.window-top{
+    height:35px;
+
+    padding:0 12px;
+
+    display:flex;
+    align-items:center;
+    gap:5px;
+
+    border-bottom:1px solid var(--line);
+}
+
+.window-dot{
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+
+    background:var(--muted);
+}
+
+.window-content{
+    padding:20px;
+}
+
+.product-block{
+    height:95px;
+
+    margin-bottom:15px;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:1px solid var(--line);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(213,184,137,.08),
+            rgba(255,255,255,.015)
+        );
+}
+
+.product-shape{
+    width:65px;
+    height:65px;
+
+    border:1px solid var(--gold);
+
+    transform:rotate(45deg);
+
+    position:relative;
+}
+
+.product-shape::after{
+    content:"";
+
+    position:absolute;
+
+    inset:13px;
+
+    border:1px solid rgba(213,184,137,.35);
+}
+
+.product-lines{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+
+.product-line{
+    height:5px;
+
+    background:rgba(255,255,255,.09);
+}
+
+.product-line.short{
+    width:65%;
+}
+
+.product-button{
+    margin-top:13px;
+
+    height:26px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:1px solid var(--line-gold);
+
+    color:var(--gold);
+
+    font-family:var(--mono);
+
+    font-size:6px;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
+}
+
+
+/* CREATOR VISUAL */
+
+.creator-board{
+    width:280px;
+
+    padding:18px;
+
+    border:1px solid var(--line-gold);
+
+    background:#0b1118;
+
+    box-shadow:
+        0 25px 50px rgba(0,0,0,.35);
+
+    transform:rotate(-3deg);
+}
+
+.creator-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:15px;
+}
+
+.creator-header span{
+    color:var(--muted);
+
+    font-family:var(--mono);
+
+    font-size:7px;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
+}
+
+.creator-status{
+    color:var(--green)!important;
+}
+
+.creator-list{
+    display:flex;
+    flex-direction:column;
+
+    gap:9px;
+}
+
+.creator-row{
+    padding:10px;
+
+    display:grid;
+
+    grid-template-columns:
+        28px
+        1fr
+        auto;
+
+    gap:9px;
+
+    align-items:center;
+
+    border:1px solid var(--line);
+
+    background:rgba(255,255,255,.018);
+}
+
+.creator-avatar{
+    width:27px;
+    height:27px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:1px solid var(--line-gold);
+
+    border-radius:50%;
+
+    color:var(--gold);
+
+    font-family:var(--serif);
+
+    font-size:9px;
+}
+
+.creator-name{
+    color:var(--cream);
+
+    font-family:var(--mono);
+
+    font-size:7px;
+}
+
+.creator-role{
+    margin-top:2px;
+
+    color:var(--muted);
+
+    font-size:6px;
+}
+
+.creator-metric{
+    color:var(--green);
+
+    font-family:var(--mono);
+
+    font-size:7px;
+}
+
+
+/* =========================================================
+   PROCESS
+   ========================================================= */
+
+.process-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,minmax(0,1fr));
+
+    border-top:1px solid var(--line);
+    border-left:1px solid var(--line);
+}
+
+.process-step{
+    min-height:200px;
+
+    padding:27px;
+
+    border-right:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+
+    position:relative;
+}
+
+.process-number{
+    color:var(--gold);
+
+    font-family:var(--mono);
+
+    font-size:9px;
+}
+
+.process-title{
+    margin:35px 0 10px;
+
+    color:var(--cream);
+
+    font-family:var(--serif);
+
+    font-size:18px;
+
+    font-weight:400;
+}
+
+.process-text{
+    margin:0;
+
+    color:var(--muted);
+
+    font-size:10px;
+
+    line-height:1.75;
+}
+
+.process-arrow{
+    position:absolute;
+
+    top:29px;
+    right:27px;
+
+    color:rgba(213,184,137,.45);
+
+    font-size:11px;
+}
+
+
+/* =========================================================
+   FINAL CTA
+   ========================================================= */
+
+.cta-section{
+    padding:100px 70px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    text-align:center;
+
+    border-bottom:1px solid var(--line);
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            rgba(213,184,137,.08),
+            transparent 55%
+        );
+}
+
+.cta-orbit{
+    width:430px;
+    height:430px;
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border:1px solid rgba(213,184,137,.08);
+
+    border-radius:50%;
+
+    pointer-events:none;
+}
+
+.cta-orbit::before{
+    content:"";
+
+    position:absolute;
+
+    inset:50px;
+
+    border:1px dashed rgba(213,184,137,.08);
+
+    border-radius:50%;
+}
+
+.cta-content{
+    position:relative;
+
+    z-index:2;
+}
+
+.cta-kicker{
+    margin:0 0 15px;
+
+    color:var(--gold);
+
+    font-family:var(--mono);
+
+    font-size:9px;
+
+    letter-spacing:.15em;
+
+    text-transform:uppercase;
+}
+
+.cta-title{
+    max-width:700px;
+
+    margin:0 auto;
+
+    color:var(--cream);
+
+    font-family:var(--serif);
+
+    font-size:clamp(32px,4.5vw,56px);
+
+    font-weight:400;
+
+    line-height:1.18;
+}
+
+.cta-text{
+    max-width:560px;
+
+    margin:20px auto 30px;
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    line-height:1.8;
+}
+
+.cta-button{
+    min-width:180px;
+
+    padding:14px 23px;
+
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:10px;
+
+    border:1px solid var(--gold);
+
+    color:var(--bg);
+
+    background:var(--gold);
+
+    font-family:var(--mono);
+
+    font-size:9px;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
+
+    transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease;
+}
+
+.cta-button:hover{
+    color:var(--cream);
+
+    background:transparent;
+
+    transform:translateY(-3px);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer{
+    padding:48px 70px 35px;
+
+    background:#080d13;
+
+    color:var(--muted);
+
+    font-family:var(--mono);
+
+    font-size:9px;
+
+    letter-spacing:.04em;
+}
+
+.footer-top{
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    gap:40px;
+
+    padding-bottom:32px;
+
+    border-bottom:1px solid var(--line);
+}
+
+.footer-logo{
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+}
+
+.logo-mark{
+    width:48px;
+    height:48px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:1px solid var(--line-gold);
+
+    color:var(--gold);
+
+    font-family:var(--serif);
+
+    font-size:16px;
+
+    background:rgba(213,184,137,.035);
+}
+
+.footer-brand{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:3px;
+}
+
+.footer-brand-name{
+    color:var(--cream);
+
+    font-family:var(--serif);
+
+    font-size:17px;
+}
+
+.footer-brand-subtitle{
+    color:var(--muted);
+
+    font-size:8px;
+
+    letter-spacing:.09em;
+
+    text-transform:uppercase;
+}
+
+
+/* =========================================================
+   SOCIAL ICONS
+   ========================================================= */
+
+.footer-links{
+    display:flex;
+
+    align-items:center;
+    justify-content:flex-end;
+
+    gap:8px;
+}
+
+.footer-icon{
+    width:42px;
+    height:42px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:1px solid var(--line);
+
+    color:var(--muted);
+
+    background:var(--bg);
+
+    font-size:16px;
+
+    transition:
+        color .25s ease,
+        border-color .25s ease,
+        background .25s ease,
+        transform .25s ease;
+}
+
+.footer-icon:hover{
+    color:var(--gold-light);
+
+    border-color:var(--line-gold);
+
+    background:rgba(213,184,137,.04);
+
+    transform:translateY(-3px);
+}
+
+
+/* =========================================================
+   FOOTER BOTTOM
+   ========================================================= */
+
+.footer-bottom{
+    padding-top:23px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+.footer-bottom span:last-child{
+    color:var(--gold);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media(max-width:1050px){
+
+    .hero{
+        grid-template-columns:1fr;
+
+        gap:50px;
+
+        padding:70px 45px;
+    }
+
+    .hero-visual{
+        min-height:450px;
+    }
+
+    .capabilities-grid{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+    }
+
+    .case-study{
+        grid-template-columns:
+            65px
+            minmax(0,1fr)
+            310px;
+    }
+
+    .case-content{
+        padding:32px;
+    }
+
+    .section,
+    .case-section,
+    .cta-section{
+        padding-left:45px;
+        padding-right:45px;
+    }
+
+    .process-grid{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+    }
+
+    .contact-buttons{
+        grid-template-columns:
+            repeat(3,minmax(0,1fr));
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media(max-width:700px){
+
+    .site-wrap{
+        width:calc(100% - 14px);
+
+        margin:
+            7px auto
+            25px;
+    }
+
+
+    /* -----------------------------------------------------
+       NAVIGATION
+       ----------------------------------------------------- */
+
+    .navbar{
+        min-height:auto;
+
+        padding:14px 15px;
+
+        align-items:flex-start;
+
+        gap:10px;
+    }
+
+    .nav-brand{
+        padding-top:5px;
+
+        font-size:8px;
+
+        gap:7px;
+    }
+
+    .nav-brand-mark{
+        width:25px;
+        height:25px;
+
+        font-size:9px;
+    }
+
+    .nav-links{
+        gap:0;
+
+        align-items:flex-start;
+    }
+
+    .nav-item{
+        height:auto;
+    }
+
+    .nav-link{
+        height:34px;
+
+        padding:0 6px;
+
+        font-size:7px;
+
+        letter-spacing:.035em;
+    }
+
+    .dropdown-toggle{
+        gap:3px;
+    }
+
+    .dropdown-arrow{
+        font-size:6px;
+    }
+
+    .dropdown-menu{
+        top:34px;
+
+        right:0;
+
+        min-width:220px;
+
+        padding:6px;
+    }
+
+    .dropdown-link{
+        padding:11px;
+
+        font-size:7px;
+    }
+
+
+    /* -----------------------------------------------------
+       HERO
+       ----------------------------------------------------- */
+
+    .hero{
+        min-height:auto;
+
+        padding:48px 20px 42px;
+
+        display:flex;
+
+        flex-direction:column;
+
+        gap:35px;
+    }
+
+    .kicker{
+        margin-bottom:17px;
+
+        font-size:8px;
+    }
+
+    .kicker::before{
+        width:22px;
+    }
+
+    h1{
+        font-size:
+            clamp(
+                37px,
+                11vw,
+                54px
+            );
+    }
+
+    .hero-subtitle{
+        margin:18px 0 20px;
+
+        font-size:17px;
+    }
+
+    .hero-intro{
+        font-size:11px;
+
+        line-height:1.8;
+    }
+
+    .hero-meta{
+        margin-top:26px;
+
+        gap:16px;
+    }
+
+    .availability,
+    .hero-note{
+        font-size:7px;
+    }
+
+
+    /* -----------------------------------------------------
+       HERO VISUAL
+       ----------------------------------------------------- */
+
+    .hero-visual{
+        min-height:360px;
+    }
+
+    .orbit{
+        width:285px;
+        height:285px;
+    }
+
+    .dashboard-card{
+        width:
+            min(
+                290px,
+                calc(100% - 30px)
+            );
+
+        padding:19px;
+    }
+
+    .dashboard-number{
+        margin-top:19px;
+
+        font-size:37px;
+    }
+
+    .chart{
+        height:95px;
+
+        margin-top:18px;
+    }
+
+    .dashboard-bottom{
+        padding-top:14px;
+    }
+
+    .mini-stat{
+        padding:8px;
+    }
+
+    .mini-stat-value{
+        font-size:14px;
+    }
+
+    .mini-stat-label{
+        font-size:5px;
+    }
+
+    .float-card{
+        padding:9px 11px;
+    }
+
+    .float-card small{
+        font-size:5px;
+    }
+
+    .float-card strong{
+        font-size:11px;
+    }
+
+    .float-one{
+        top:20px;
+        right:-2px;
+    }
+
+    .float-two{
+        bottom:30px;
+        left:-2px;
+    }
+
+    .float-three{
+        display:none;
+    }
+
+
+    /* -----------------------------------------------------
+       CONTACT
+       ----------------------------------------------------- */
+
+    .contact-section{
+        margin-top:30px;
+    }
+
+    .contact-box{
+        padding:13px;
+    }
+
+    .contact-buttons{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+
+        gap:7px;
+    }
+
+    .contact-button{
+        min-height:40px;
+
+        padding:8px 5px;
+
+        font-size:7px;
+    }
+
+
+    /* -----------------------------------------------------
+       SECTIONS
+       ----------------------------------------------------- */
+
+    .section,
+    .case-section,
+    .cta-section{
+        padding:
+            55px
+            20px;
+    }
+
+    .section-heading{
+        margin-bottom:30px;
+    }
+
+    .section-kicker,
+    .case-tag,
+    .cta-kicker{
+        font-size:7px;
+    }
+
+    .section-title{
+        font-size:30px;
+    }
+
+    .section-description{
+        font-size:10px;
+    }
+
+
+    /* -----------------------------------------------------
+       CAPABILITIES
+       ----------------------------------------------------- */
+
+    .capabilities-grid{
+        grid-template-columns:1fr;
+
+        gap:9px;
+    }
+
+    .capability{
+        min-height:190px;
+
+        padding:22px;
+    }
+
+    .capability-icon{
+        margin:23px 0 14px;
+
+        width:36px;
+        height:36px;
+    }
+
+    .capability-title{
+        font-size:18px;
+    }
+
+    .capability-text{
+        font-size:9px;
+    }
+
+
+    /* -----------------------------------------------------
+       CASE STUDIES
+       ----------------------------------------------------- */
+
+    .case-list{
+        gap:10px;
+    }
+
+    .case-study{
+        display:flex;
+
+        flex-direction:column;
+    }
+
+    .case-index{
+        min-height:38px;
+
+        padding:12px 20px;
+
+        justify-content:flex-start;
+
+        border-right:0;
+
+        border-bottom:1px solid var(--line);
+    }
+
+    .case-content{
+        padding:26px 20px 30px;
+    }
+
+    .case-title{
+        font-size:25px;
+    }
+
+    .case-description{
+        font-size:9px;
+    }
+
+    .case-visual{
+        min-height:260px;
+
+        border-left:0;
+
+        border-top:1px solid var(--line);
+    }
+
+    .shop-window{
+        width:220px;
+    }
+
+    .creator-board{
+        width:235px;
+    }
+
+
+    /* -----------------------------------------------------
+       PROCESS
+       ----------------------------------------------------- */
+
+    .process-grid{
+        grid-template-columns:1fr;
+    }
+
+    .process-step{
+        min-height:165px;
+
+        padding:22px;
+    }
+
+    .process-title{
+        margin-top:27px;
+
+        font-size:17px;
+    }
+
+    .process-text{
+        font-size:9px;
+    }
+
+
+    /* -----------------------------------------------------
+       CTA
+       ----------------------------------------------------- */
+
+    .cta-section{
+        padding-top:70px;
+        padding-bottom:70px;
+    }
+
+    .cta-title{
+        font-size:31px;
+    }
+
+    .cta-text{
+        font-size:10px;
+    }
+
+    .cta-orbit{
+        width:310px;
+        height:310px;
+    }
+
+
+    /* -----------------------------------------------------
+       FOOTER
+       ----------------------------------------------------- */
+
+    .footer{
+        padding:
+            35px
+            20px
+            25px;
+
+        font-size:8px;
+    }
+
+    .footer-top{
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:25px;
+
+        padding-bottom:25px;
+    }
+
+    .footer-links{
+        width:100%;
+
+        justify-content:flex-start;
+
+        flex-wrap:wrap;
+    }
+
+    .footer-icon{
+        width:39px;
+        height:39px;
+
+        font-size:15px;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:5px;
+
+        padding-top:18px;
+
+        font-size:7px;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media(max-width:390px){
+
+    .nav-brand{
+        font-size:7px;
+    }
+
+    .nav-link{
+        padding:0 4px;
+
+        font-size:6px;
+    }
+
+    h1{
+        font-size:35px;
+    }
+
+    .dashboard-card{
+        width:270px;
+    }
+
+    .orbit{
+        width:260px;
+        height:260px;
+    }
+
+    .contact-button{
+        font-size:6.5px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<main class="site-wrap">
+
+
+<!-- =========================================================
+     NAVIGATION
+     ========================================================= -->
+
+<nav class="navbar">
+
+    <!-- HOME / PORTFOLIO -->
+
+    <a
+        class="nav-brand"
+        href="#"
+        onclick="openCmsLink('Home'); return false;"
+    >
+        <span class="nav-brand-mark">IP</span>
+        Portfolio
+    </a>
+
+
+    <div class="nav-links">
+
+        <!-- HOME -->
+
+        <div class="nav-item">
+
+            <a
+                class="nav-link"
+                href="#"
+                onclick="openCmsLink('Home'); return false;"
+            >
+                Home
+            </a>
+
+        </div>
+
+
+        <!-- ABOUT ME -->
+
+        <div class="nav-item">
+
+            <a
+                class="nav-link"
+                href="#"
+                onclick="openCmsLink('About me'); return false;"
+            >
+                About Me
+            </a>
+
+        </div>
+
+
+        <!-- CASE STUDIES -->
+
+        <div class="nav-item dropdown">
+
+            <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                aria-haspopup="true"
+                aria-expanded="false"
+            >
+                Case Studies
+
+                <span class="dropdown-arrow">
+                    ▾
+                </span>
+
+            </a>
+
+
+            <div class="dropdown-menu">
+
+                <a
+                    class="dropdown-link"
+                    href="#"
+                    onclick="openCmsLink('Tiktok Shop Management'); return false;"
+                >
+                    TikTok Shop Management
+                </a>
+
+
+                <a
+                    class="dropdown-link"
+                    href="#"
+                    onclick="openCmsLink('Affiliate Creator Management'); return false;"
+                >
+                    Affiliate Creator Management
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
+<header class="hero">
+
+
+    <!-- =====================================================
+         HERO CONTENT
+         ===================================================== -->
+
+    <div class="hero-content">
+
+        <p class="kicker">
+            TikTok Commerce Portfolio
+        </p>
+
+
+        <h1>
+            Turning <em>Shop Operations</em>
+            Into Structured Growth.
+        </h1>
+
+
+        <div class="hero-subtitle">
+            TikTok Shop Management, Affiliate Creator Partnerships &amp; Growth Operations.
+        </div>
+
+
+        <div class="hero-intro">
+
+            <p>
+                I help manage and optimize TikTok Shop operations while building structured
+                creator partnerships designed to support content, sales, and long-term growth.
+            </p>
+
+            <p>
+                Explore my case studies to see how I approach store management,
+                creator selection, affiliate partnerships, UGC generation,
+                optimization, and growth.
+            </p>
+
+        </div>
+
+
+        <!-- HERO META -->
+
+        <div class="hero-meta">
+
+            <div class="availability">
+                <span class="status-dot"></span>
+                Available for projects
+            </div>
+
+            <div class="hero-note">
+                Store Operations · Creator Growth · Analytics
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             CONTACT
+             ================================================= -->
+
+        <div class="contact-section">
+
+            <div class="contact-box">
+
+                <p class="contact-label">
+                    Start a conversation
+                </p>
+
+
+                <div class="contact-buttons">
+
+                    <!-- EMAIL -->
+
+                    <a
+                        class="contact-button"
+                        href="#"
+                        onclick="openCmsLink('Email'); return false;"
+                    >
+                        <i class="fa-solid fa-envelope"></i>
+                        Email
+                    </a>
+
+
+                    <!-- UPWORK -->
+
+                    <a
+                        class="contact-button"
+                        href="#"
+                        onclick="openCmsLink('Upwork'); return false;"
+                    >
+                        <i class="fa-brands fa-upwork"></i>
+                        Upwork
+                    </a>
+
+
+                    <!-- LINKEDIN -->
+
+                    <a
+                        class="contact-button"
+                        href="#"
+                        onclick="openCmsLink('LinkedIn'); return false;"
+                    >
+                        <i class="fa-brands fa-linkedin-in"></i>
+                        LinkedIn
+                    </a>
+
+
+                    <!-- FACEBOOK -->
+
+                    <a
+                        class="contact-button"
+                        href="#"
+                        onclick="openCmsLink('Facebook'); return false;"
+                    >
+                        <i class="fa-brands fa-facebook-f"></i>
+                        Facebook
+                    </a>
+
+
+                    <!-- WHATSAPP -->
+
+                    <a
+                        class="contact-button"
+                        href="#"
+                        onclick="openCmsLink('WhatsApp'); return false;"
+                    >
+                        <i class="fa-brands fa-whatsapp"></i>
+                        WhatsApp
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         HERO VISUAL
+         ===================================================== -->
+
+    <div class="hero-visual">
+
+        <div class="orbit"></div>
+
+
+        <!-- FLOATING CARD -->
+
+        <div class="float-card float-one">
+
+            <small>
+                Creator Network
+            </small>
+
+            <strong>
+                Scalable
+            </strong>
+
+        </div>
+
+
+        <div class="float-card float-two">
+
+            <small>
+                Operations
+            </small>
+
+            <strong>
+                Optimized
+            </strong>
+
+        </div>
+
+
+        <div class="float-three">
+            SYSTEM / GROWTH / 01
+        </div>
+
+
+        <!-- DASHBOARD -->
+
+        <div class="dashboard-card">
+
+            <div class="dashboard-top">
+
+                <span class="dashboard-label">
+                    Performance Overview
+                </span>
+
+                <span class="dashboard-period">
+                    TikTok Shop
+                </span>
+
+            </div>
+
+
+            <div class="dashboard-number">
+                Growth
+            </div>
+
+            <div class="dashboard-growth">
+                ↑ Structured systems &amp; partnerships
+            </div>
+
+
+            <!-- CHART -->
+
+            <div class="chart">
+
+                <div class="chart-grid"></div>
+
+                <div class="chart-line">
+
+                    <svg
+                        viewBox="0 0 300 90"
+                        preserveAspectRatio="none"
+                    >
+
+                        <path
+                            d="M0,78
+                               C22,73 30,70 47,74
+                               C67,79 70,59 88,63
+                               C106,67 112,47 130,53
+                               C148,59 158,36 177,43
+                               C194,50 198,29 216,34
+                               C236,40 245,17 263,24
+                               C277,29 286,13 300,7"
+                            fill="none"
+                            stroke="#d5b889"
+                            stroke-width="2"
+                        />
+
+                        <circle
+                            cx="300"
+                            cy="7"
+                            r="4"
+                            fill="#d5b889"
+                        />
+
+                    </svg>
+
+                </div>
+
+            </div>
+
+
+            <!-- MINI STATS -->
+
+            <div class="dashboard-bottom">
+
+                <div class="mini-stat">
+
+                    <div class="mini-stat-value">
+                        Shop
+                    </div>
+
+                    <div class="mini-stat-label">
+                        Operations
+                    </div>
+
+                </div>
+
+
+                <div class="mini-stat">
+
+                    <div class="mini-stat-value">
+                        UGC
+                    </div>
+
+                    <div class="mini-stat-label">
+                        Content
+                    </div>
+
+                </div>
+
+
+                <div class="mini-stat">
+
+                    <div class="mini-stat-value">
+                        Data
+                    </div>
+
+                    <div class="mini-stat-label">
+                        Analytics
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     CAPABILITIES
+     ========================================================= -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <p class="section-kicker">
+            What I Work On
+        </p>
+
+        <h2 class="section-title">
+            The systems behind a high-performing TikTok Shop.
+        </h2>
+
+        <p class="section-description">
+            From day-to-day store operations to creator partnerships and performance analysis,
+            the work is structured around keeping the commerce engine organized and scalable.
+        </p>
+
+    </div>
+
+
+    <div class="capabilities-grid">
+
+
+        <!-- CAPABILITY 01 -->
+
+        <article class="capability">
+
+            <div class="capability-number">
+                01 / OPERATIONS
+            </div>
+
+            <div class="capability-icon">
+                <i class="fa-solid fa-store"></i>
+            </div>
+
+            <h3 class="capability-title">
+                TikTok Shop Management
+            </h3>
+
+            <p class="capability-text">
+                Store operations, product management, listings, campaigns,
+                customer service, optimization, and ongoing shop administration.
+            </p>
+
+        </article>
+
+
+        <!-- CAPABILITY 02 -->
+
+        <article class="capability">
+
+            <div class="capability-number">
+                02 / CREATORS
+            </div>
+
+            <div class="capability-icon">
+                <i class="fa-solid fa-users"></i>
+            </div>
+
+            <h3 class="capability-title">
+                Creator Partnerships
+            </h3>
+
+            <p class="capability-text">
+                Creator discovery, outreach, relationship management,
+                affiliate partnerships, sample coordination, and content pipelines.
+            </p>
+
+        </article>
+
+
+        <!-- CAPABILITY 03 -->
+
+        <article class="capability">
+
+            <div class="capability-number">
+                03 / PERFORMANCE
+            </div>
+
+            <div class="capability-icon">
+                <i class="fa-solid fa-chart-line"></i>
+            </div>
+
+            <h3 class="capability-title">
+                Analytics &amp; Optimization
+            </h3>
+
+            <p class="capability-text">
+                Performance monitoring, identifying opportunities,
+                analyzing results, and turning data into operational decisions.
+            </p>
+
+        </article>
+
+
+        <!-- CAPABILITY 04 -->
+
+        <article class="capability">
+
+            <div class="capability-number">
+                04 / CONTENT
+            </div>
+
+            <div class="capability-icon">
+                <i class="fa-solid fa-video"></i>
+            </div>
+
+            <h3 class="capability-title">
+                UGC Generation
+            </h3>
+
+            <p class="capability-text">
+                Building creator systems that encourage consistent product content
+                and create a reliable stream of user-generated media.
+            </p>
+
+        </article>
+
+
+        <!-- CAPABILITY 05 -->
+
+        <article class="capability">
+
+            <div class="capability-number">
+                05 / CAMPAIGNS
+            </div>
+
+            <div class="capability-icon">
+                <i class="fa-solid fa-bullseye"></i>
+            </div>
+
+            <h3 class="capability-title">
+                Campaign Management
+            </h3>
+
+            <p class="capability-text">
+                Campaign planning, promotional structures, vouchers,
+                creator activation, and coordinated promotional execution.
+            </p>
+
+        </article>
+
+
+        <!-- CAPABILITY 06 -->
+
+        <article class="capability">
+
+            <div class="capability-number">
+                06 / SYSTEMS
+            </div>
+
+            <div class="capability-icon">
+                <i class="fa-solid fa-diagram-project"></i>
+            </div>
+
+            <h3 class="capability-title">
+                Workflow Systems
+            </h3>
+
+            <p class="capability-text">
+                Creating organized workflows for creators, products,
+                content, communication, tracking, and operational follow-through.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CASE STUDIES
+     ========================================================= -->
+
+<section class="case-section">
+
+    <div class="section-heading">
+
+        <p class="section-kicker">
+            Selected Work
+        </p>
+
+        <h2 class="section-title">
+            Case studies built around real operational problems.
+        </h2>
+
+        <p class="section-description">
+            Explore the two primary areas of my work: managing the commerce operation
+            and building the creator ecosystem that supports it.
+        </p>
+
+    </div>
+
+
+    <div class="case-list">
+
+
+        <!-- =================================================
+             CASE STUDY 01
+             ================================================= -->
+
+        <a
+            class="case-study"
+            href="#"
+            onclick="openCmsLink('Tiktok Shop Management'); return false;"
+        >
+
+            <div class="case-index">
+                01
+            </div>
+
+
+            <div class="case-content">
+
+                <div class="case-tag">
+                    Store Operations
+                </div>
+
+                <h3 class="case-title">
+                    TikTok Shop Management
+                </h3>
+
+                <p class="case-description">
+                    A structured approach to managing the operational side of a TikTok Shop,
+                    from product and store administration to campaigns, customer service,
+                    analytics, and optimization.
+                </p>
+
+                <span class="case-link">
+                    Explore Case Study
+                    <span>→</span>
+                </span>
+
+            </div>
+
+
+            <!-- CASE VISUAL -->
+
+            <div class="case-visual">
+
+                <div class="shop-window">
+
+                    <div class="window-top">
+
+                        <span class="window-dot"></span>
+                        <span class="window-dot"></span>
+                        <span class="window-dot"></span>
+
+                    </div>
+
+
+                    <div class="window-content">
+
+                        <div class="product-block">
+
+                            <div class="product-shape"></div>
+
+                        </div>
+
+
+                        <div class="product-lines">
+
+                            <div class="product-line"></div>
+
+                            <div class="product-line short"></div>
+
+                            <div class="product-line"></div>
+
+                        </div>
+
+
+                        <div class="product-button">
+                            Product Management
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <!-- =================================================
+             CASE STUDY 02
+             ================================================= -->
+
+        <a
+            class="case-study"
+            href="#"
+            onclick="openCmsLink('Affiliate Creator Management'); return false;"
+        >
+
+            <div class="case-index">
+                02
+            </div>
+
+
+            <div class="case-content">
+
+                <div class="case-tag">
+                    Creator Partnerships
+                </div>
+
+                <h3 class="case-title">
+                    Affiliate Creator Management
+                </h3>
+
+                <p class="case-description">
+                    A creator-focused system covering discovery, outreach, selection,
+                    affiliate partnerships, sample management, UGC generation,
+                    relationship tracking, and performance optimization.
+                </p>
+
+                <span class="case-link">
+                    Explore Case Study
+                    <span>→</span>
+                </span>
+
+            </div>
+
+
+            <!-- CASE VISUAL -->
+
+            <div class="case-visual">
+
+                <div class="creator-board">
+
+                    <div class="creator-header">
+
+                        <span>
+                            Creator Pipeline
+                        </span>
+
+                        <span class="creator-status">
+                            Active
+                        </span>
+
+                    </div>
+
+
+                    <div class="creator-list">
+
+
+                        <div class="creator-row">
+
+                            <div class="creator-avatar">
+                                A
+                            </div>
+
+                            <div>
+
+                                <div class="creator-name">
+                                    CREATOR_01
+                                </div>
+
+                                <div class="creator-role">
+                                    Product Content
+                                </div>
+
+                            </div>
+
+                            <div class="creator-metric">
+                                +UGC
+                            </div>
+
+                        </div>
+
+
+                        <div class="creator-row">
+
+                            <div class="creator-avatar">
+                                B
+                            </div>
+
+                            <div>
+
+                                <div class="creator-name">
+                                    CREATOR_02
+                                </div>
+
+                                <div class="creator-role">
+                                    Affiliate
+                                </div>
+
+                            </div>
+
+                            <div class="creator-metric">
+                                ACTIVE
+                            </div>
+
+                        </div>
+
+
+                        <div class="creator-row">
+
+                            <div class="creator-avatar">
+                                C
+                            </div>
+
+                            <div>
+
+                                <div class="creator-name">
+                                    CREATOR_03
+                                </div>
+
+                                <div class="creator-role">
+                                    UGC Pipeline
+                                </div>
+
+                            </div>
+
+                            <div class="creator-metric">
+                                READY
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PROCESS
+     ========================================================= -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <p class="section-kicker">
+            My Approach
+        </p>
+
+        <h2 class="section-title">
+            Structured execution from setup to optimization.
+        </h2>
+
+        <p class="section-description">
+            The objective is not simply to complete tasks. It is to build an organized
+            system where store operations, creators, content, and performance work together.
+        </p>
+
+    </div>
+
+
+    <div class="process-grid">
+
+
+        <!-- STEP 01 -->
+
+        <div class="process-step">
+
+            <div class="process-number">
+                01
+            </div>
+
+            <div class="process-arrow">
+                →
+            </div>
+
+            <h3 class="process-title">
+                Audit
+            </h3>
+
+            <p class="process-text">
+                Review the existing store, products, creator activity,
+                workflows, content, and performance.
+            </p>
+
+        </div>
+
+
+        <!-- STEP 02 -->
+
+        <div class="process-step">
+
+            <div class="process-number">
+                02
+            </div>
+
+            <div class="process-arrow">
+                →
+            </div>
+
+            <h3 class="process-title">
+                Structure
+            </h3>
+
+            <p class="process-text">
+                Organize products, workflows, creator pipelines,
+                campaigns, communication, and tracking systems.
+            </p>
+
+        </div>
+
+
+        <!-- STEP 03 -->
+
+        <div class="process-step">
+
+            <div class="process-number">
+                03
+            </div>
+
+            <div class="process-arrow">
+                →
+            </div>
+
+            <h3 class="process-title">
+                Execute
+            </h3>
+
+            <p class="process-text">
+                Manage daily operations, activate creators,
+                coordinate content, and maintain campaign execution.
+            </p>
+
+        </div>
+
+
+        <!-- STEP 04 -->
+
+        <div class="process-step">
+
+            <div class="process-number">
+                04
+            </div>
+
+            <h3 class="process-title">
+                Optimize
+            </h3>
+
+            <p class="process-text">
+                Monitor performance, identify opportunities,
+                refine workflows, and continuously improve the system.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FINAL CTA
+     ========================================================= -->
+
+<section class="cta-section">
+
+    <div class="cta-orbit"></div>
+
+
+    <div class="cta-content">
+
+        <p class="cta-kicker">
+            Let's Work Together
+        </p>
+
+
+        <h2 class="cta-title">
+            Need someone to keep your TikTok Shop moving?
+        </h2>
+
+
+        <p class="cta-text">
+            Whether you need support with store operations, creator management,
+            affiliate partnerships, or building a more organized workflow,
+            let's talk about what you're working on.
+        </p>
+
+
+        <a
+            class="cta-button"
+            href="#"
+            onclick="openCmsLink('Email'); return false;"
+        >
+            Get In Touch
+            <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer class="footer">
+
+
+    <div class="footer-top">
+
+
+        <!-- LOGO -->
+
+        <div class="footer-logo">
+
+            <div class="logo-mark">
+                IP
+            </div>
+
+
+            <div class="footer-brand">
+
+                <div class="footer-brand-name">
+                    Israel Pascual
+                </div>
+
+
+                <div class="footer-brand-subtitle">
+                    TikTok Shop &amp; Affiliate Creator Management
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             SOCIAL ICONS
+             ================================================= -->
+
+        <div class="footer-links">
+
+
+            <!-- EMAIL -->
+
+            <a
+                class="footer-icon"
+                href="#"
+                onclick="openCmsLink('Email'); return false;"
+                aria-label="Email"
+                title="Email"
+            >
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+
+
+            <!-- UPWORK -->
+
+            <a
+                class="footer-icon"
+                href="#"
+                onclick="openCmsLink('Upwork'); return false;"
+                aria-label="Upwork"
+                title="Upwork"
+            >
+                <i class="fa-brands fa-upwork"></i>
+            </a>
+
+
+            <!-- LINKEDIN -->
+
+            <a
+                class="footer-icon"
+                href="#"
+                onclick="openCmsLink('LinkedIn'); return false;"
+                aria-label="LinkedIn"
+                title="LinkedIn"
+            >
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+
+
+            <!-- FACEBOOK -->
+
+            <a
+                class="footer-icon"
+                href="#"
+                onclick="openCmsLink('Facebook'); return false;"
+                aria-label="Facebook"
+                title="Facebook"
+            >
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+
+
+            <!-- WHATSAPP -->
+
+            <a
+                class="footer-icon"
+                href="#"
+                onclick="openCmsLink('WhatsApp'); return false;"
+                aria-label="WhatsApp"
+                title="WhatsApp"
+            >
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         FOOTER BOTTOM
+         ================================================= -->
+
+    <div class="footer-bottom">
+
+        <span>
+            TikTok Shop &amp; Affiliate Creator Management
+        </span>
+
+
+        <span>
+            Portfolio / 2026
+        </span>
+
+    </div>
+
+</footer>
+
+
+</main>
+
+
+<!-- =========================================================
+     CMS LINK COMMUNICATION
+     ========================================================= -->
+
+<script>
+
+function openCmsLink(title) {
+
+    var message = {
+        type: "openCmsLink",
+        title: title
+    };
+
+    var parentOrigin = "*";
+
+    try {
+
+        if (document.referrer) {
+            parentOrigin = new URL(document.referrer).origin;
+        }
+
+    } catch (error) {
+
+        parentOrigin = "*";
+
+    }
+
+    window.parent.postMessage(
+        message,
+        parentOrigin
+    );
+
+}
+
+</script>
+
+
+</body>
+</html>
